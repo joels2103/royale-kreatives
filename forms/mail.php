@@ -1,66 +1,33 @@
-<?php		
-		if (
-		isset($_POST['nameVal'], $_POST['emailVal'], $_POST['subjectVal'], $_POST['messageVal'], $_POST['phoneVal'],$_POST['budgetVal'],$_POST['eventDateVal'], $_POST['locationVal']) &&
-		!empty($_POST['nameVal']) && 
-		!empty($_POST['emailVal']) && 
-		!empty($_POST['subjectVal']) && 
-		!empty($_POST['messageVal']) && 
-		!empty($_POST['phoneVal']) && 
-		!empty($_POST['budgetVal']) && 
-		!empty($_POST['eventDateVal']) && 
-		!empty($_POST['locationVal'])
-	) {
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-		//send email
-		/* Subject & Email Variables */
-		$subject = 'Feedback Information';
-		
-		/* Mail Form Contents */
-		$name = $_POST['nameVal'];
-		$emailAddress = $_POST['emailVal'];
-		$subject1 = $_POST['subjectVal'];
-		$message = $_POST['messageVal'];
-		$budget = $_POST['budgetVal'];	
-		$phone = $_POST['phoneVal'];
-		$location = $_POST['locationVal'];	
-		$eventDate = $_POST['eventDateVal'];	
+require '../phpmailer/src/Exception.php';
+require '../phpmailer/src/PHPMailer.php';
+require '../phpmailer/src/SMTP.php';
 
-$date = DateTime::createFromFormat('Y-m-d', $eventDate);
-$formattedDate = $date->format('d-m-Y'); // Day-Month-Year format
+$mail = new PHPMailer(true);
 
+try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'royalekreativesweb@gmail.com'; // Your Gmail
+    $mail->Password = 'tvrw sucl apok wcek'; // App Password from Gmail
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
 
+    $mail->setFrom('royalekreativesweb@gmail.com', 'Royale Kreatives');
+    $mail->addAddress('royalekreatives@outlook.com'); // Recipient
+    $mail->addReplyTo('royalekreativesweb@gmail.com');
 
-		date_default_timezone_set('America/Toronto');
-        $mydateAndTime=date("d-m-Y H:i:sa");			
-		
-		// To send the HTML mail we need to set the Content-type header.			
-		$messageNew = "<b>Name</b>      : " .$name."<br/>".
-		"<b>Event Type</b>   : " .$subject1."<br/>".
-		"<b>Email ID</b>     : " .$emailAddress."<br/>".	
-		"<b>Phone Number</b>     : " .$phone."<br/>".	
-		"<b>Event Location</b>     : " .$location."<br/>".		
-		"<b>Event Date</b>     : " .$formattedDate."<br/>".	
-		"<b>Budget in Dollars</b>     : " .$budget."<br/>".		
-		"<b>Message</b>   : " .$message."<br/>";					
-		
-		$subject = "Event Booking Inquiry -". $mydateAndTime;       
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-		$headers .= "mailed-by: sales@pinnacletechnologies.in";
-		$headers .= "return-Path: sales@pinnacletechnologies.in";
-		$headers .= "signed-by: sales@pinnacletechnologies.in";
-		$headers .= "From: ".$name. "\r\n" . 
-		"Reply-To: sales@pinnacletechnologies.in" . "\r\n" .
-		"X-Mailer: PHP/" . phpversion();
-		$email = "sales@pinnacletechnologies.in";
-		$sent = mail($email, $subject, $messageNew, $headers, $emailAddress) ; 
-		echo $sent;
-		if ($sent) {
-			echo '<script>alert("Thank you for contacting us. One of our representatives will be in touch with you soon..");</script>';
-			echo '<script>window.location.href = "../index.html";</script>';	 																	
-		}			
-	}
-	else{
-		echo "Thank You for taking your precious time to have visited our website." . "\n" . "All the required fields needs to be entered";
-	}
+    $mail->isHTML(true);
+    $mail->Subject = 'Test Email from Gmail via PHPMailer';
+    $mail->Body    = '<b>This is a test email sent from Gmail SMTP using PHPMailer.</b>';
+
+    $mail->send();
+    echo '✅ Message sent!';
+} catch (Exception $e) {
+    echo "❌ Mailer Error: {$mail->ErrorInfo}";
+}
 ?>
