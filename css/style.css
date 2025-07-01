@@ -707,7 +707,7 @@ button:focus {
   /* cursor: pointer; */
   border: 8px solid #eee;
   margin-bottom: 30px;
-  cursor: pointer;
+
 }
 
 figure.effect-service {
@@ -811,9 +811,9 @@ figure figcaption > a {
   opacity: 0;
 }
 
-figure.effect-service:hover img {
+/* figure.effect-service:hover img {
   opacity: 0.6;
-}
+} */
 figure.effect-service:hover p {
   opacity: 1;
 }
@@ -2213,7 +2213,7 @@ margin-top: 90px;
   border: 1px solid color-mix(in srgb, #2f3138, transparent 85%);
   position: relative;
   border-radius: 0;
-  cursor: pointer;
+  
 }
 
 .hotels .card .card-img {
@@ -2238,7 +2238,7 @@ margin-top: 90px;
 .hotels .card span {
   color: #000;
   transition: 0.3;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-family: 'Montserrat', sans-serif;
 }
 
