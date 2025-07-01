@@ -46,13 +46,13 @@ $formattedDate = $date->format('d-m-Y'); // Day-Month-Year format
 		$subject = "Event Booking Inquiry -". $mydateAndTime;       
 		$headers = "MIME-Version: 1.0" . "\r\n";
 		$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
-		$headers .= "mailed-by: royalekreatives@outlook.com";
-		$headers .= "return-Path: royalekreatives@outlook.com";
-		$headers .= "signed-by: royalekreatives@outlook.com";
+		$headers .= "mailed-by: sales@pinnacletechnologies.in";
+		$headers .= "return-Path: sales@pinnacletechnologies.in";
+		$headers .= "signed-by: sales@pinnacletechnologies.in";
 		$headers .= "From: ".$name. "\r\n" . 
-		"Reply-To: royalekreatives@outlook.com" . "\r\n" .
+		"Reply-To: sales@pinnacletechnologies.in" . "\r\n" .
 		"X-Mailer: PHP/" . phpversion();
-		$email = "royalekreatives@outlook.com";
+		$email = "sales@pinnacletechnologies.in";
 		$sent = mail($email, $subject, $messageNew, $headers, $emailAddress) ; 
 		echo $sent;
 		if ($sent) {
