@@ -1252,6 +1252,23 @@ figure.effect-service:hover {
   padding: 0;
 }
 .dit-right p {
+  font-size: 16px;
+  margin-top: 0;
+}
+.dit-right a {
+  font-size: 16px;
+  color: #3a4149;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.dit-right a:hover {
+  /* color: #b42e3f; */
+  color: #bc7b00;
+}
+
+@media(max-width:1100px){
+.dit-right p {
   font-size: 14px;
   margin-top: 0;
 }
@@ -1262,8 +1279,6 @@ figure.effect-service:hover {
   line-height: normal;
 }
 
-.dit-right a:hover {
-  color: #b42e3f;
 }
 
 .contact-block {
@@ -2391,8 +2406,51 @@ margin-bottom: 25px;
     padding: 80px 0px;
 }
 
+.contactSection-phone {
+  display: flex;
+  align-items: center;
+}
 
+.contactSection-phone a i{
+font-size: 18px;
+}
 
+.contactSection-phone span{
+margin-bottom: 2px;
+}
+
+.c-mr-1 {
+  margin-right: 11px;
+}
+.flex-BA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media(max-width:1100px){
+
+.c-mr-1 {
+  margin-right: 9px;
+}
+.contactSection-phone a i{
+font-size: 16px;
+
+}
+}
+
+@media(max-width:575px){
+.contactSection-phone {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+flex-direction: row;
+}
+
+.c-mr-1 {
+  margin-right: 11px;
+}
+
+}
 
 
 
