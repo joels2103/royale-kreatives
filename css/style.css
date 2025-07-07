@@ -272,6 +272,7 @@ button:focus {
   color: #ffffff;
   font-weight: 900;
   border-radius: 100%;
+  z-index: 999;
 }
 
 /*------------------------------------------------------------------
@@ -2452,6 +2453,49 @@ flex-direction: row;
 
 }
 
+
+.instagram-float {
+  position: fixed;
+  /* top: 50%;
+  right: 0; */
+  /* transform: translateY(-50%); */
+    bottom: 80px; 
+  right: 20px;  
+  background-color: #4e226e; 
+box-shadow: 0 8px 14px rgba(114, 112, 112, 0.3),  /* bottom shadow */
+            0 -8px 14px rgba(126, 124, 124, 0.3); /* top shadow */
+
+  color: white;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-align: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+@media(max-width:570px){
+ .instagram-float {
+    padding: 8px 18px;
+    font-size: 14px;
+ }
+}
+
+.instagram-float:hover {
+  background-color: #6b3396;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-float img {
+  display: inline;
+
+
+}
 
 
 
