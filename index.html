@@ -1788,14 +1788,25 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <input
+                      <!-- <input
                         type="date"
                         placeholder="Your Event Date "
                         id="eventDate"
                         class="form-control form-ip"
                         name="eventDate"
                         required
-                      />
+                      /> -->
+                      <div class="position-relative">
+          <input
+    type="date"
+    class="form-control form-ip pe-5"
+    id="eventDate"
+    name="eventDate"
+    required
+  />
+
+  <i class="fa fa-calendar position-absolute display-mobile" aria-hidden="true" style="right: 20px; top: 50%; transform: translateY(-50%); pointer-events: none;"></i>
+</div>
                       <span
                         id="eventDateError"
                         style="color: red; font-size: 14px"
