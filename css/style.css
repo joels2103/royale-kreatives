@@ -2581,4 +2581,11 @@ color: #4E226E;
 
 
 
+@media(max-width:570px){
+  .spaceTop24{
+  margin-top: 38px;
+}
+}
+
+
 
