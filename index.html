@@ -1934,7 +1934,7 @@
                 <div class="media-body dit-right">
                   <h4>Name</h4>
                   <p style="color: #3a4149">
-                    Raman Preet Kaur (RK) & Yatish Salian (YS)
+                    Ramanpreet Kaur (RK) & Yatish Salian (YS)
                   </p>
                 </div>
               </div>
@@ -2198,7 +2198,8 @@
           document.getElementById("phone").value &&
           document.getElementById("phone").value.length != 10;
         const budgetText =
-          Number(document.getElementById("budget").value) === 0;
+        document.getElementById("budget").value && 
+          Number(document.getElementById("budget").value) === 0 ;
         // const budgetText = document.getElementById("budget").value && document.getElementById("budget").value === 0;
 
         const nameText =
@@ -2234,14 +2235,29 @@
           messageText ||
           eventDateText
         ) {
+          // let focusEl;
+          // errorRequired.forEach((el) => {
+          //   document.getElementById(
+          //     `${el}Error`
+          //   ).textContent = `${capFirstLetter(el)}${
+          //     el === "phone" ? " Number" : ""
+          //   } is required`;
+          // });
           let focusEl;
-          errorRequired.forEach((el) => {
-            document.getElementById(
-              `${el}Error`
-            ).textContent = `${capFirstLetter(el)}${
-              el === "phone" ? " Number" : ""
-            } is required`;
-          });
+
+errorRequired.forEach((el) => {
+  let label;
+
+  if (el === "eventDate") {
+    label = "Event Date";
+  } else if (el === "phone") {
+    label = "Phone Number";
+  } else {
+    label = capFirstLetter(el);
+  }
+
+  document.getElementById(`${el}Error`).textContent = `${label} is required`;
+});
 
           if (errorRequired.length > 0)
             focusEl = ipNames.findIndex((ip) => ip === errorRequired[0]);
